@@ -1,23 +1,23 @@
 def boasvindas
     puts "Bem Vindo ao Jogo da Forca do Gio. Insira seu nome abaixo e tecle enter"
     puts "\n"
-    nome = gets.strip
+    player = gets.strip
     puts "\n\n"
-    puts "Bem vindo, #{nome}"
+    puts "Bem vindo, #{player}"
     puts "\n"
-    nome
+    player
 end
 
 def secret_word    
 
     puts "Estou escolhendo um palavra secreta..."
-    sorteado = "programador"
+    draw = "programador"
     sleep (1)
     puts "..."
     sleep(1)
-    puts  "Escolhido! Tente adivinhar! A palavra possui #{sorteado.size} letras!"
+    puts  "Escolhido! Tente adivinhar! A palavra possui #{draw.size} letras!"
     puts "\n"
-    sorteado
+    draw
 end
 
 def wtpa
@@ -27,25 +27,25 @@ def wtpa
     wtpaa = wa.upcase == "S"
 end
 
-def triesxerrors (chutes, erros)
+def triesxerrors (hunchs, errors)
     puts "\n"
-    puts "erros até agora #{erros}"
-    puts "erros até agora #{chutes}"
+    puts "errors até agora #{errors}"
+    puts "errors até agora #{hunchs}"
 end
 
-def pedechute chutes, erros
-    triesxerrors chutes, erros
+def callhunch hunchs, errors
+    triesxerrors hunchs, errors
     sleep(0.5)
     puts "Entre com uma palavra"
-    chute = gets.strip
+    tip = gets.strip
     sleep(1)
     puts "\nSerá que acertou?"
-    chute
+    tip
 end
 
-def alreadykick chute
+def alreadykick tip
     sleep(0.5)
-    puts "\nVc já chutou! #{chute}"
+    puts "\nVc já chutou! #{tip}"
 end
 
 def notfoundletter

@@ -1,54 +1,54 @@
 require_relative 'ui_palavra'
 
-# def winloss acertou, nowpoints, quack, erros
+# def winloss acertou, nowpoints, quack, errors
 #     if acertou
 #         win
 #         nowpoints += 100
 #     else
 #         quack
 #         nowpoints -= 30
-#         erros += 1
+#         errors += 1
 #     end 
 # end
 
 
-def joga nome
-    sorteado = secret_word
+def joga player
+    draw = secret_word
 
-    erros = 0
-    chutes = []
+    errors = 0
+    hunchs = []
     nowpoints = 0
 
-    while erros < 5 
-        chute = pedechute chutes, erros
-        if chutes.include? chute
-            alreadykick chute
+    while errors < 5 
+        tip = callhunch hunchs, errors
+        if hunchs.include? tip
+            alreadykick tip
             next
         end
 
-        chutes << chute
+        hunchs << tip
         
 
-        if chute.size == 1  
-            letter = chute[0]
-            lettersfindout = sorteado.count letter
+        if tip.size == 1  
+            letter = tip[0]
+            lettersfindout = draw.count letter
         
             if lettersfindout == 0
                 notfoundletter
-                erros += 1
+                errors += 1
             else 
                 foundletters lettersfindout
             end
         else   
-            acertou = chute == sorteado
-            if acertou
+            alright = tip == draw
+            if alright
                  win
                  nowpoints += 100
                  break
              else
                 quack
                  nowpoints -= 30
-                 erros += 1
+                 errors += 1
             end  
         end
 
@@ -59,9 +59,9 @@ end
 
 def game
 
-    nome = boasvindas
+    player = boasvindas
     loop do
-        joga nome
+        joga player
         if wtpa == false    
         break   
         end
