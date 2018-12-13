@@ -1,22 +1,29 @@
 require_relative 'ui_palavra'
 
-def play player
-
-    draw = secret_word
-    errors = 0
-    hunchs = []
-    nowpoints = 0
-
-    while errors < 5 
+def callvalidhunch hunchs, errors
+    loop do    
         tip = callhunch hunchs, errors
         if hunchs.include? tip
             alreadykick tip
-            next
+        else
+            return tip
         end
+    end
+end
 
+
+def play player
+
+draw = secret_word
+errors = 0
+hunchs = []
+nowpoints = 0
+
+    while errors < 5 
+
+        tip = callvalidhunch hunchs, errors
         hunchs << tip
         
-
         if tip.size == 1  
             letter = tip[0]
             lettersfindout = draw.count letter
@@ -39,7 +46,6 @@ def play player
                  errors += 1
             end  
         end
-
     end
 
     ending_game nowpoints
