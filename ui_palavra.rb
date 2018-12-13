@@ -1,4 +1,4 @@
-def boasvindas
+def welcome
     puts "Bem Vindo ao Jogo da Forca do Gio. Insira seu nome abaixo e tecle enter"
     puts "\n"
     player = gets.strip

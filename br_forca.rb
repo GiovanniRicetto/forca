@@ -1,20 +1,8 @@
 require_relative 'ui_palavra'
 
-# def winloss acertou, nowpoints, quack, errors
-#     if acertou
-#         win
-#         nowpoints += 100
-#     else
-#         quack
-#         nowpoints -= 30
-#         errors += 1
-#     end 
-# end
+def play player
 
-
-def joga player
     draw = secret_word
-
     errors = 0
     hunchs = []
     nowpoints = 0
@@ -59,9 +47,9 @@ end
 
 def game
 
-    player = boasvindas
+    player = welcome
     loop do
-        joga player
+        play player
         if wtpa == false    
         break   
         end
