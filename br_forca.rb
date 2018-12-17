@@ -6,7 +6,7 @@ def choosesecretword
     word = File.read('dicionario.txt')
     allwords = word.split "\n"
     wordc = rand(allwords.size)
-    draw = allwords[wordc]
+    draw = allwords[wordc].downcase
     choosedword draw
 end
 
@@ -25,7 +25,7 @@ end
 def callvalidhunch hunchs, errors, shadowed
     triesxerrors hunchs, errors, shadowed
     loop do    
-        tip = callhunch hunchs, errors
+        tip = callhunch
         if hunchs.include? tip
             alreadykick tip
         else
