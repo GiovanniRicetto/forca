@@ -3,7 +3,7 @@ require_relative 'ui_palavra'
 
 def choosesecretword
     choosingword
-    word = File.read("dicionario.txt")
+    word = File.read('dicionario.txt')
     allwords = word.split "\n"
     wordc = rand(allwords.size)
     draw = allwords[wordc]

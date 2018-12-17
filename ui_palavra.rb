@@ -14,7 +14,7 @@ def choosingword
     puts "..."
 end
 
-def choosedword
+def choosedword draw
     sleep(1)
     puts  "Escolhido! Tente adivinhar! A palavra possui #{draw.size} letras!"
     puts "\n"
@@ -35,7 +35,7 @@ def triesxerrors hunchs, errors, shadowed
     puts "errors até agora #{hunchs}"
 end
 
-def callhunch hunchs, errors, shadowed
+def callhunch
     sleep(0.5)
     puts "Entre com uma palavra"
     tip = gets.strip.downcase
