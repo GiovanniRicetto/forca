@@ -1,6 +1,19 @@
 require_relative 'ui_palavra'
 
-def callvalidhunch hunchs, errors
+def maskeredword hunchs, draw
+    shadowed = ""
+    for letter in draw.chars
+        if hunchs.include? letter
+            shadowed += letter
+        else
+            shadowed += "_"
+        end
+    end
+    shadowed
+end
+
+def callvalidhunch hunchs, errors, shadowed
+    triesxerrors hunchs, errors, shadowed
     loop do    
         tip = callhunch hunchs, errors
         if hunchs.include? tip
@@ -11,7 +24,6 @@ def callvalidhunch hunchs, errors
     end
 end
 
-
 def play player
 
 draw = secret_word
@@ -20,8 +32,9 @@ hunchs = []
 nowpoints = 0
 
     while errors < 5 
-
-        tip = callvalidhunch hunchs, errors
+       
+        shadowed = maskeredword hunchs, draw
+        tip = callvalidhunch hunchs, errors, shadowed
         hunchs << tip
         
         if tip.size == 1  

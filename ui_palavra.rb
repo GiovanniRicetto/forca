@@ -27,17 +27,17 @@ def wtpa
     wtpaa = wa.upcase == "S"
 end
 
-def triesxerrors (hunchs, errors)
+def triesxerrors hunchs, errors, shadowed
     puts "\n"
+    puts "Palavra secreta é #{shadowed}"
     puts "errors até agora #{errors}"
     puts "errors até agora #{hunchs}"
 end
 
 def callhunch hunchs, errors
-    triesxerrors hunchs, errors
     sleep(0.5)
     puts "Entre com uma palavra"
-    tip = gets.strip
+    tip = gets.strip.downcase
     sleep(1)
     puts "\nSerá que acertou?"
     tip
@@ -71,4 +71,3 @@ end
 def ending_game nowpoints
     puts "\nVocê ganhou #{nowpoints} pontos."
 end
-
