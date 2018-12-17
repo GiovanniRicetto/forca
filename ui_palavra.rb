@@ -8,12 +8,13 @@ def welcome
     player
 end
 
-def secret_word    
-
+def choosingword    
     puts "Estou escolhendo um palavra secreta..."
-    draw = "programador"
     sleep (1)
     puts "..."
+end
+
+def choosedword
     sleep(1)
     puts  "Escolhido! Tente adivinhar! A palavra possui #{draw.size} letras!"
     puts "\n"
@@ -34,7 +35,7 @@ def triesxerrors hunchs, errors, shadowed
     puts "errors até agora #{hunchs}"
 end
 
-def callhunch hunchs, errors
+def callhunch hunchs, errors, shadowed
     sleep(0.5)
     puts "Entre com uma palavra"
     tip = gets.strip.downcase

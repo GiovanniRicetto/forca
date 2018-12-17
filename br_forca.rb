@@ -1,5 +1,15 @@
 require_relative 'ui_palavra'
 
+
+def choosesecretword
+    choosingword
+    word = File.read("dicionario.txt")
+    allwords = word.split "\n"
+    wordc = rand(allwords.size)
+    draw = allwords[wordc]
+    choosedword draw
+end
+
 def maskeredword hunchs, draw
     shadowed = ""
     for letter in draw.chars
@@ -26,7 +36,7 @@ end
 
 def play player
 
-draw = secret_word
+draw = choosesecretword
 errors = 0
 hunchs = []
 nowpoints = 0
